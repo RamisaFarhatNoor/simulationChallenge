@@ -62,7 +62,7 @@ investmentDAG.show()
 
 ### 1) Expected Value After 1 Flip
 
-Explain whether the expected value of your account balance after one flip is greater than, equal to, or less than $30,000. What is the gain in expected value as a percentage of your buy-in? Based on this simple analysis, state whether you would recommend buying into the game and why.
+
 
 ```{python}
 #| label: q1-expected-value-py
@@ -86,7 +86,7 @@ Therefore, based only on expected value, the game looks attractive, but this alo
 
 ### 2) Single Simulation Over Time (Narrative + Plot)
 
-Narrate and visualize what happens to your account balance over the course of one simulation run. Describe the trajectory and state whether you would be satisfied with this particular outcome. Explain your reasoning.
+
 
 ```{python}
 
@@ -127,7 +127,7 @@ The simulation shows that the account balance experiences large fluctuations ove
 
 ### 3) 100 Simulations: Distribution of Final Balances
 
-Describe the distribution of final account balances across 100 simulations. Report the mean, median, and the probability of ending with more than your initial $30,000. Given these results, would you be satisfied with the likely outcomes? Explain your reasoning.
+
 
 ```{python}
 #| label: q3-dist-100-py
@@ -171,6 +171,10 @@ ax.set_xlabel("Final Balance at Age 75 ($)")
 ax.set_ylabel("Frequency")
 ax.grid(True, alpha=0.3)
 plt.show()
+
+print(f"Mean: {mean_final:.0f}")
+print(f"Median: {median_final:.0f}")
+print(f"Probability > 30000: {prob_above:.2f}")
 # Run 100 simulations and plot a histogram of final balances.
 # Add a vertical line at $30,000 for reference.
 # Compute mean, median, and P(final > $30,000).
@@ -180,13 +184,12 @@ plt.show()
 
 ```
 
-The distribution is highly skewed, with most outcomes concentrated at lower balance levels and a few extremely large values pulling the average upward. This indicates that while the expected value may appear attractive, it is driven by rare, highly favorable scenarios. The mean final balance is higher than the median, confirming the distribution is skewed, and the probability of ending above $30,000 is relatively low.
+The mean final balance is approximately $120,000, while the median is $15,000, and the probability of ending above $30,000 is 0.23. The distribution is highly skewed, with most outcomes concentrated at lower balance levels and a few extremely large values pulling the average upward. This indicates that while the expected value may appear attractive, it is driven by rare, highly favorable scenarios. The mean final balance is higher than the median, confirming the distribution is skewed, and the probability of ending above $30,000 is relatively low.
 
 From a practical perspective, the typical outcome is much lower than the average, suggesting that most individuals would not achieve large gains. Therefore, I would be cautious about recommending this investment, as the likelihood of achieving a favorable outcome is limited despite the presence of extreme upside potential.
 
 ### 4) Probability Balance > $30,000 at Age 75 (Original Game)
 
-Report the probability that your final balance exceeds $30,000. Interpret what this probability means for your investment decision—does this change your recommendation from Section 1?
 
 ```{python}
 #| label: q4-prob-original-py
@@ -316,7 +319,7 @@ The plot shows that the original strategy leads to highly extreme and unpredicta
 
 ### 6) The Kelly Criterion
 
-Explain what the Kelly Criterion is and how it relates to the modified strategy from Section 5. Does the Kelly Criterion support your recommendation?
+
 
 The Kelly Criterion is a strategy used to determine the optimal fraction of wealth to bet in order to maximize long-term growth while minimizing the risk of losing everything. Instead of betting the full amount, it recommends betting only a portion of the total wealth based on the expected return and risk of the game.
 
